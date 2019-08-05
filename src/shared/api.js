@@ -6,7 +6,7 @@ import snakecaseKeys from 'snakecase-keys'
 const baseUrl = 'https://api.themoviedb.org/3'
 
 const instance = axios.create({
-  baseURL,
+  baseUrl,
   paramsSerializer: params =>
     qs.stringify(snakecaseKeys(params), { arrayFormat: 'brackets' }),
   timeout: 2000,
