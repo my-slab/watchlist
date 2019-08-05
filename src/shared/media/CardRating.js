@@ -1,6 +1,7 @@
 import React from 'react'
 
-import BackgroundImage from '../../ui/BackgroundImage'
+import Absolute from '../../ui/Absolute'
+import Text from '../../ui/Text'
 
 function ratingToUpOrDown(rating) {
   return rating >= 6 ? '👍' : '👎'

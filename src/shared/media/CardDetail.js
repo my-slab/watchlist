@@ -1,6 +1,7 @@
 import React from 'react'
 
 import ISO6391 from 'iso-639-1'
+import styled from 'styled-components'
 
 import Absolute from '../../ui/Absolute'
 import Text from '../../ui/Text'
