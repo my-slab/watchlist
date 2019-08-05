@@ -10,7 +10,7 @@ import Card from '../ui/Card'
 import Flex from '../ui/Flex'
 import Heading from '../ui/Heading'
 import Input from '../ui/Input'
-import Nav from '../ui/Nav'
+// import Nav from '../ui/Nav'
 import Relative from '../ui/Relative'
 import Text from '../ui/Text'
 import ThemeProvider from '../ui/ThemeProvider'
@@ -76,11 +76,11 @@ storiesOf('ui components', module)
       </Relative>
     </Box>
   ))
-  .add('Nav', () => (
-    <Box p="md">
-      <Nav />
-    </Box>
-  ))
+  // .add('Nav', () => (
+  //   <Box p="md">
+  //     <Nav />
+  //   </Box>
+  // ))
   .add('Input', () => (
     <Box p="md">
       <Input type="number" width={64} />
