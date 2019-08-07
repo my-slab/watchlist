@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react'
 
-import api from '../api'
+import api, { pickData } from '../api'
+import useLoading from '../hooks/useLoading'
 import useLocalStorage from '../hooks/useLocalStorage'
 
 export const AccountContext = createContext()
@@ -8,9 +9,14 @@ export const AccountContext = createContext()
 const AccountProvider = ({ children }) => {
   const [account, setAccount] = useState()
   const [sessionId] = useLocalStorage('sessionId', '')
+  const { pop } = useLoading()
 
   useEffect(() => {
-    api.get('/account', { sessionId }).then(setAccount)
+    api
+      .get('/account', { params: { sessionId } })
+      .then(pickData)
+      .then(setAccount)
+      .finally(pop)
   }, [])
 
   return (
