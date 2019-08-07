@@ -10,6 +10,7 @@ const GlobalStyles = () => {
   const GlobalStyle = createGlobalStyle`
     html {
       box-sizing: border-box;
+      height: 100%;
     }
 
     *, *:before, *:after {
@@ -23,6 +24,7 @@ const GlobalStyles = () => {
       font-size: 100%;
       font: inherit;
       vertical-align: baseline;
+      height: 100vh;
 
       ${css({
         bg: 'background',

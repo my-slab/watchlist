@@ -7,7 +7,6 @@ import Flex from './Flex'
 import Heading from './Heading'
 import Sticky from './Sticky'
 import Container from './Container'
-import IconTv from './icons/IconTv'
 import Box from './Box'
 
 const Div = styled(animated.div)`
@@ -19,7 +18,7 @@ const Div = styled(animated.div)`
   background: #4e5255;
 `
 
-const Nav = ({ children }) => {
+const Nav = ({ children, flex }) => {
   const props = useSpring({
     to: [{ top: 0 }],
     from: { top: -50 }
@@ -46,27 +45,15 @@ const Nav = ({ children }) => {
               case="upper"
               fontWeight="bold"
               fontStyle="italic"
-              width={32}
-            >
-              <IconTv />{' '}
-            </Heading>
-            <Heading
-              as="h3"
-              m="0"
-              p="xs"
-              color="white"
-              case="upper"
-              fontWeight="bold"
-              fontStyle="italic"
-              display={['none', 'initial']}
             >
               watchlist
             </Heading>
           </Flex>
 
-          {children}
+          {flex}
         </Flex>
       </Container>
+      <Container>{children}</Container>
     </Div>
   )
 }
