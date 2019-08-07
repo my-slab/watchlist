@@ -12,7 +12,7 @@ const LoadingGlobalStyles = () => {
         height: 'full',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
+        backgroundRepeat: 'repeat-y',
         backgroundImage: `url(${loadingUrl})`
       })}
     }
@@ -24,5 +24,6 @@ const LoadingGlobalStyles = () => {
 LoadingGlobalStyles.displayName = 'LoadingGlobalStyles'
 
 const Loading = () => <LoadingGlobalStyles />
+
 Loading.displayName = 'Loading'
 export default Loading

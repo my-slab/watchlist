@@ -1,24 +1,24 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useState } from 'react'
 
 import Loading from './Loading'
 
 export const LoadingContext = createContext()
 
 const LoadingProvider = ({ children }) => {
-  const [loadingStack, setLoadingStack] = useState()
-
-  const push = () => {
-    setLoadingStack([true, ...loadingState])
-  }
+  const [state, set] = useState([])
 
   const pop = () => {
-    const [, rest] = loadingStack
-    setLoadingStack(rest)
+    const [, ...rest] = state
+    set(rest)
+  }
+
+  const push = () => {
+    set([true, ...state])
   }
 
   return (
-    <LoadingContext.Provider value={[loadingStack, { pop, push }]}>
-      {loadingStack.length > 0 && <Loading />}
+    <LoadingContext.Provider value={[state, { pop, push }]}>
+      {state.length > 0 && <Loading />}
       {children}
     </LoadingContext.Provider>
   )
