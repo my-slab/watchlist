@@ -6,8 +6,8 @@ import Flex from '../../ui/Flex'
 import Card from './Card'
 import Heading from '../../ui/Heading'
 
-const MediaList = ({ media, onLoadMore, page, totalPages }) => {
-  const [ref, inView, entry] = useInView()
+const MediaList = ({ media, onLoadMore, page, totalPages, cardList }) => {
+  const [ref, inView] = useInView()
   const isNotExhausted = media.length > 0 && page < totalPages
 
   useEffect(() => {
@@ -19,8 +19,8 @@ const MediaList = ({ media, onLoadMore, page, totalPages }) => {
       {media.length > 0 ? (
         <>
           <Flex flexWrap="wrap" justifyContent="center" mb="xl">
-            {media.map(m => (
-              <Card key={m.id} {...m} />
+            {media.map((m, i) => (
+              <Card key={`${m.id}_${i}`} {...m} />
             ))}
           </Flex>
 

@@ -21,10 +21,11 @@ const S = {
 
 const Card = ({
   backdropPath,
-  posterPath,
   firstAirDate,
+  id,
   name,
   originalLanguage,
+  posterPath,
   voteAverage
 }) => {
   const [isOnWatchlist, setIsOnWatchlist] = useState(false)

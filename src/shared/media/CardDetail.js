@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import Absolute from '../../ui/Absolute'
 import Text from '../../ui/Text'
 
-function dateToYear(date = new Date()) {
+function dateToYear(date) {
   return new Date(date).getFullYear()
 }
 
