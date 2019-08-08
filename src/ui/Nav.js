@@ -3,11 +3,12 @@ import React from 'react'
 import styled from 'styled-components'
 import { animated, useSpring } from 'react-spring'
 
+import Box from './Box'
+import Container from './Container'
 import Flex from './Flex'
 import Heading from './Heading'
+import Logo from './Logo'
 import Sticky from './Sticky'
-import Container from './Container'
-import Box from './Box'
 
 const Div = styled(animated.div)`
   left: 0;
@@ -36,20 +37,7 @@ const Nav = ({ children, flex }) => {
           color="white"
           py="sm"
         >
-          <Flex>
-            <Heading
-              as="h3"
-              m="0"
-              p="xs"
-              color="white"
-              case="upper"
-              fontWeight="bold"
-              fontStyle="italic"
-            >
-              watchlist
-            </Heading>
-          </Flex>
-
+          <Logo />
           {flex}
         </Flex>
       </Container>
