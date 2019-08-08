@@ -18,18 +18,23 @@ const S = {
   Absolute: styled(Absolute)`
     -webkit-box-orient: vertical;
     display: -webkit-box;
-    line-clamp: 2;
+    -webkit-line-clamp: 2;
     overflow: hidden;
   `
 }
 
 const CardDetail = ({ firstAirDate, name, originalLanguage }) => (
   <S.Absolute bottom={8} mx="sm">
-    <Text fontSize="2xl" variant="secondary">
+    <Text fontSize="2xl" variant="secondary" p="sm">
       {name}
     </Text>
-    <Text fontSize="sm" variant="secondary">
-      {[dateToYear(firstAirDate), isoCodeToName(originalLanguage)].join(' | ')}
+    <Text fontSize="sm" variant="secondary" p="sm">
+      {[
+        firstAirDate.length > 0 && dateToYear(firstAirDate),
+        originalLanguage.length > 0 && isoCodeToName(originalLanguage)
+      ]
+        .filter(e => e !== false)
+        .join(' | ')}
     </Text>
   </S.Absolute>
 )
