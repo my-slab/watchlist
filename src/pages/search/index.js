@@ -38,7 +38,7 @@ const Search = () => {
           </Box>
         </Container>
       ) : (
-        <Nav flex={<Avatar />}>
+        <Nav avatar={<Avatar />}>
           <Box p="md">
             <QueryInput query={query} onChange={setQuery} />
           </Box>

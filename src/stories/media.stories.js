@@ -7,6 +7,8 @@ import Card from '../shared/media/Card'
 import CardDetail from '../shared/media/CardDetail'
 import CardImage from '../shared/media/CardImage'
 import CardRating from '../shared/media/CardRating'
+import CardWatchlist from '../shared/media/CardWatchlist'
+import Relative from '../ui/Relative'
 import ThemeProvider from '../ui/ThemeProvider'
 import theme from '../ui/theme'
 
@@ -31,6 +33,57 @@ storiesOf('media', module)
   .addDecorator(story => <ThemeProvider theme={theme}>{story()}</ThemeProvider>)
   .add('Card', () => (
     <Box m="md">
-      <Card {...media} />
+      <Relative
+        borderRadius="sm"
+        height={200}
+        mx={[0, 'sm']}
+        my="sm"
+        width={360}
+      >
+        <CardWatchlist isOnWatchlist />
+        <CardImage
+          backdropPath={media.backdropPath}
+          posterPath={media.posterPath}
+        />
+        <CardDetail
+          firstAirDate={media.firstAirDate}
+          name={media.name}
+          originalLanguage={media.originalLanguage}
+        />
+        <CardRating voteAverage={media.voteAverage} />
+      </Relative>
+    </Box>
+  ))
+  .add('CardWatchlist', () => (
+    <Box m="md">
+      <CardWatchlist isOnWatchlist />
+    </Box>
+  ))
+  .add('CardRating', () => (
+    <Box m="md">
+      <Relative width={1 / 12}>
+        <CardRating voteAverage={3.4} />
+      </Relative>
+      <Relative width={1 / 12} top={32}>
+        <CardRating voteAverage={media.voteAverage} />
+      </Relative>
+    </Box>
+  ))
+  .add('CardDetail', () => (
+    <Box m="md">
+      <Relative top={32} height={64}>
+        <CardDetail
+          firstAirDate={media.firstAirDate}
+          originalLanguage={media.originalLanguage}
+          name={media.name}
+        />
+      </Relative>
+    </Box>
+  ))
+  .add('CardImage', () => (
+    <Box m="md">
+      <Relative top={32} height={150} width={300}>
+        <CardImage backdropPath={media.backdropPath} />
+      </Relative>
     </Box>
   ))

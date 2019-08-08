@@ -23,12 +23,16 @@ const S = {
   `
 }
 
-const CardDetail = ({ firstAirDate, name, originalLanguage }) => (
+const CardDetail = ({
+  firstAirDate = '',
+  name = '',
+  originalLanguage = ''
+}) => (
   <S.Absolute bottom={8} mx="sm">
-    <Text fontSize="2xl" variant="secondary" p="sm">
+    <Text fontSize="2xl" variant="secondary" px="sm" pt="sm">
       {name}
     </Text>
-    <Text fontSize="sm" variant="secondary" p="sm">
+    <Text fontSize="sm" variant="secondary" px="sm" pb="sm">
       {[
         firstAirDate.length > 0 && dateToYear(firstAirDate),
         originalLanguage.length > 0 && isoCodeToName(originalLanguage)

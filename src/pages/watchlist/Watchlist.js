@@ -49,7 +49,7 @@ const Watchlist = () => {
           </Flex>
         </Container>
       ) : (
-        <Nav flex={<Avatar />} />
+        <Nav avatar={<Avatar />} />
       )}
 
       <Flex width="full" justifyContent="center" mb="lg" ref={ref}>

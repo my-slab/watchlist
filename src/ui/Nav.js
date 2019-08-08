@@ -16,7 +16,7 @@ const Div = styled(animated.div)`
   background: #4e5255;
 `
 
-const Nav = ({ children, flex }) => {
+const Nav = ({ children, avatar }) => {
   const props = useSpring({
     to: [{ top: 0 }],
     from: { top: -50 }
@@ -35,7 +35,7 @@ const Nav = ({ children, flex }) => {
           py="sm"
         >
           <Logo />
-          {flex}
+          {avatar}
         </Flex>
       </Container>
       <Container>{children}</Container>

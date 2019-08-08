@@ -5,12 +5,11 @@ import { storiesOf, addDecorator } from '@storybook/react'
 import Absolute from '../ui/Absolute'
 import BackgroundImage from '../ui/BackgroundImage'
 import Box from '../ui/Box'
-import Button from '../ui/Button'
-import Card from '../ui/Card'
 import Flex from '../ui/Flex'
 import Heading from '../ui/Heading'
 import Input from '../ui/Input'
 // import Nav from '../ui/Nav'
+import Container from '../ui/Container'
 import Relative from '../ui/Relative'
 import Text from '../ui/Text'
 import ThemeProvider from '../ui/ThemeProvider'
@@ -18,52 +17,41 @@ import theme from '../ui/theme'
 
 storiesOf('ui components', module)
   .addDecorator(story => <ThemeProvider theme={theme}>{story()}</ThemeProvider>)
-  .add('Box', () => <Box bg="orcaBlue" height={200} m="md" width={200} />)
+  .add('Box', () => <Box bg="surface" height={200} m="md" width={200} />)
   .add('Flex', () => (
     <Flex justifyContent="space-between" m="md">
       <Box bg="surface" height={200} width={200} />
-      <Box bg="orcaBlue" height={200} width={200} />
-      <Box bg="peachpuff" height={200} width={200} />
+      <Box bg="textSecondary" height={200} width={200} />
+      <Box bg="textBackgroundPrimary" height={200} width={200} />
     </Flex>
   ))
-  .add('Card', () => <Card height={400} m="md" />)
   .add('BackgroundImage', () => (
     <BackgroundImage
       height={200}
-      image="https://pmcvariety.files.wordpress.com/2018/06/the-last-of-us-part-2.jpg?w=1000&h=563&crop=1"
+      image="https://image.tmdb.org/t/p/w500/iflq7ZJfso6WC7gk9l1tD3unWK.jpg"
       m="md"
       width={200}
     />
   ))
-  .add('Button', () => (
-    <Box m="md">
-      <Box mb="md">
-        <Button>Add to cart</Button>
-      </Box>
-      <Box>
-        <Button variant="secondary">Add to wishlist</Button>
-      </Box>
-    </Box>
+  .add('Container', () => (
+    <Container bg="surface">
+      <Text p="lg">ドラゴンボール</Text>
+    </Container>
   ))
   .add('Text', () => (
     <Box p="md">
-      <Text>The Last of Us</Text>
-      <Text fontWeight="bold">The Last of Us</Text>
-      <Text color="textSecondary">The Last of Us</Text>
-      <Text color="orcaBlue">The Last of Us</Text>
-      <Text color="white" bg="orcaBlue" as="span">
-        The Last of Us
-      </Text>
+      <Text>ドラゴンボール</Text>
+      <Text variant="secondary">ドラゴンボール</Text>
     </Box>
   ))
   .add('Heading', () => (
     <Box p="md">
-      <Heading as="h1">The Last of Us</Heading>
-      <Heading as="h2">The Last of Us</Heading>
-      <Heading as="h3">The Last of Us</Heading>
-      <Heading as="h4">The Last of Us</Heading>
-      <Heading as="h5">The Last of Us</Heading>
-      <Heading as="h6">The Last of Us</Heading>
+      <Heading as="h1">ドラゴンボール</Heading>
+      <Heading as="h2">ドラゴンボール</Heading>
+      <Heading as="h3">ドラゴンボール</Heading>
+      <Heading as="h4">ドラゴンボール</Heading>
+      <Heading as="h5">ドラゴンボール</Heading>
+      <Heading as="h6">ドラゴンボール</Heading>
     </Box>
   ))
   .add('Position - Relative, Absolute', () => (
@@ -83,6 +71,6 @@ storiesOf('ui components', module)
   // ))
   .add('Input', () => (
     <Box p="md">
-      <Input type="number" width={64} />
+      <Input type="search" width={1 / 2} />
     </Box>
   ))
