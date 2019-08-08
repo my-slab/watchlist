@@ -3,7 +3,6 @@ import React from 'react'
 import { storiesOf, addDecorator } from '@storybook/react'
 
 import Box from '../ui/Box'
-import Card from '../shared/media/Card'
 import CardDetail from '../shared/media/CardDetail'
 import CardImage from '../shared/media/CardImage'
 import CardRating from '../shared/media/CardRating'
