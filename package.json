@@ -6,9 +6,12 @@
     "@reach/router": "^1.2.1",
     "@styled-system/css": "^5.0.17",
     "@styled-system/prop-types": "^5.0.18",
-    "axios": "^0.19.0",
+    "axios": "0.18.1",
     "camelcase-keys-deep": "^0.1.0",
     "iso-639-1": "^2.1.0",
+    "lodash.get": "^4.4.2",
+    "lodash.isequal": "^4.5.0",
+    "lodash.merge": "^4.6.2",
     "qs": "^6.7.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -17,7 +20,8 @@
     "react-spring": "^8.0.27",
     "snakecase-keys": "^3.1.0",
     "styled-components": "^4.3.2",
-    "styled-system": "^5.0.18"
+    "styled-system": "^5.0.18",
+    "use-deep-compare-effect": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
