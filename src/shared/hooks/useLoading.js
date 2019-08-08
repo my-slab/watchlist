@@ -10,5 +10,5 @@ export default function useLoading() {
     return () => pop()
   }, [])
 
-  return { push, pop }
+  return { start: push, stop: pop }
 }
