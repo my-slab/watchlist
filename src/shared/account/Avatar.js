@@ -14,7 +14,7 @@ const Avatar = () => {
   return hash ? (
     <Gravatar hash={hash} />
   ) : (
-    <Text fontSize="4xl" color="white" bg="none">
+    <Text fontSize="4xl" bg="none">
       <IconAccount />
     </Text>
   )

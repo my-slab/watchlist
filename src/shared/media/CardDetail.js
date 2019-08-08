@@ -24,9 +24,11 @@ const S = {
 }
 
 const CardDetail = ({ firstAirDate, name, originalLanguage }) => (
-  <S.Absolute bottom={8}>
-    <Text fontSize="2xl">{name}</Text>
-    <Text fontSize="sm">
+  <S.Absolute bottom={8} mx="sm">
+    <Text fontSize="2xl" variant="secondary">
+      {name}
+    </Text>
+    <Text fontSize="sm" variant="secondary">
       {[dateToYear(firstAirDate), isoCodeToName(originalLanguage)].join(' | ')}
     </Text>
   </S.Absolute>

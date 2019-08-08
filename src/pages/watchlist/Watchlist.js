@@ -56,52 +56,20 @@ const Watchlist = () => {
         <Box width={['full', 1 / 2]}>
           {results.length > 0 ? (
             <>
-              <Text
-                p="sm"
-                fontSize="xl"
-                fontStyle="italic"
-                fontWeight="bold"
-                case="upper"
-                textAlign="center"
-                color="white"
-              >
+              <Text fontSize="xl" p="sm" textAlign="center">
                 {username}, your watchlist.
               </Text>
-              <Text
-                p="sm"
-                fontSize="xl"
-                fontStyle="italic"
-                fontWeight="bold"
-                case="upper"
-                textAlign="center"
-                color="white"
-              >
+              <Text fontSize="xl" p="sm" textAlign="center">
                 double click to remove items, or <Link to="/">search</Link> for
                 more titles.
               </Text>
             </>
           ) : (
             <>
-              <Text
-                p="sm"
-                fontSize="xl"
-                fontStyle="italic"
-                fontWeight="bold"
-                case="upper"
-                textAlign="center"
-                color="white"
-              >
+              <Text fontSize="xl" p="sm" textAlign="center">
                 {username}, your watchlist is empty.
               </Text>
-              <Text
-                p="sm"
-                fontSize="xl"
-                fontStyle="italic"
-                fontWeight="bold"
-                case="upper"
-                textAlign="center"
-                color="white"
-              >
+              <Text fontSize="xl" p="sm" textAlign="center">
                 here are some popular shows, or <Link to="/">search</Link> for
                 more titles.
               </Text>

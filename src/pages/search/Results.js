@@ -27,16 +27,7 @@ const Results = ({ query }) => {
   if (query.length > 0) {
     return (
       <Flex width="full" justifyContent="center" mb="lg">
-        <Text
-          case="upper"
-          color="white"
-          fontSize="xl"
-          fontStyle="italic"
-          fontWeight="bold"
-          p="sm"
-          textAlign="center"
-          width={['full', 1 / 2]}
-        >
+        <Text fontSize="xl" p="sm" textAlign="center">
           No results for "{query}"
         </Text>
       </Flex>

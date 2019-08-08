@@ -15,9 +15,9 @@ function toRatio(rating) {
 const CardRating = ({ voteAverage }) => (
   <>
     {voteAverage > 0 && (
-      <Absolute top={8} right={0}>
-        <Text fontSize="sm">
-          <Text as="span" fontStyle="initial">
+      <Absolute top={8} right={0} mx="sm">
+        <Text fontSize="sm" variant="secondary">
+          <Text as="span" fontStyle="initial" variant="secondary">
             {ratingToUpOrDown(voteAverage)}
           </Text>{' '}
           {toRatio(voteAverage)}

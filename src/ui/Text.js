@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import propTypes from '@styled-system/prop-types'
 import styled from 'styled-components'
 import { color, compose, layout, space, typography } from 'styled-system'
+import { css } from '@styled-system/css'
 
 const letterCase = props => {
   switch (props.case) {
@@ -20,18 +21,16 @@ const letterCase = props => {
   }
 }
 
+const variant = props =>
+  props.variant === 'secondary' &&
+  css({
+    bg: 'textBackgroundSecondary',
+    color: 'textSecondary',
+    opacity: 0.85
+  })
+
 const Text = styled('div')`
-  @import url('https://fonts.googleapis.com/css?family=Exo+2:900i&display=swap');
-
-  @import url('https://fonts.googleapis.com/css?family=Cairo&display=swap');
-
-  @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
-
-  @import url('https://fonts.googleapis.com/css?family=Titillium+Web:700i&display=swap');
-
   @import url('https://fonts.googleapis.com/css?family=Poppins:400,900i&display=swap');
-
-  @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,700i&display=swap');
 
   ${compose(
     color,
@@ -40,17 +39,17 @@ const Text = styled('div')`
     typography
   )}
   ${letterCase}
+  ${variant}
 `
 
 Text.defaultProps = {
-  color: '#DA304C',
-  bg: '#C9A2D2',
-  // fontFamily: "'Exo 2', sans-serif;",
+  bg: 'textBackgroundPrimary',
+  case: 'upper',
+  color: 'textPrimary',
   fontFamily: "'Poppins', sans-serif;",
-  // fontFamily: "'Titillium Web', sans-serif;",
-  // fontFamily: "'IBM Plex Sans', sans-serif",
   fontSize: 'md',
-  fontWeight: 'normal'
+  fontStyle: 'italic',
+  fontWeight: 'bold'
 }
 
 Text.propTypes = {

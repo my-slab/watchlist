@@ -25,7 +25,7 @@ const CardWatchlist = ({ isOnWatchlist }) => {
           .interpolate(x => `scale(${x})`)
       }}
     >
-      <Text as="span">
+      <Text as="span" variant="secondary" fontStyle="normal">
         <span role="img" aria-label="heart">
           ❤️
         </span>

@@ -46,16 +46,7 @@ const Search = () => {
       )}
 
       <Flex width="full" justifyContent="center" mb="lg" ref={ref}>
-        <Text
-          width={['full', 1 / 2]}
-          p="sm"
-          fontSize="xl"
-          fontStyle="italic"
-          fontWeight="bold"
-          case="upper"
-          textAlign="center"
-          color="white"
-        >
+        <Text textAlign="center" p="sm" fontSize="xl">
           Search for TV shows, then add them to your{' '}
           <Link to="/watchlist">watchlist</Link> (double click).
         </Text>
