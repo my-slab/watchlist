@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import { Link } from '@reach/router'
 import { useInView } from 'react-intersection-observer'
@@ -12,15 +12,12 @@ import Nav from '../../ui/Nav'
 import QueryInput from './QueryInput'
 import Results from './Results'
 import Text from '../../ui/Text'
-import api, { pickData } from '../../shared/api'
 import useDebounce from '../../shared/hooks/useDebounce'
-import useGetWithPagedResults from '../../shared/hooks/useGetWithPagedResults'
-import useLoading from '../../shared/hooks/useLoading'
 
 const Search = () => {
   const [query, setQuery] = useState('')
   const debouncedQuery = useDebounce(query, 300)
-  const [ref, inView, entry] = useInView()
+  const [ref, inView] = useInView()
 
   return (
     <Box my="lg">

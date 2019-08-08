@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 
 import { Link } from '@reach/router'
 import { useInView } from 'react-intersection-observer'
@@ -18,7 +18,7 @@ import { AccountContext } from '../../shared/account/AccountProvider'
 import { WatchlistContext } from '../../shared/watchlist/WatchlistProvider'
 
 const Watchlist = () => {
-  const [ref, inView, entry] = useInView()
+  const [ref, inView] = useInView()
   const [sessionId] = useLocalStorage('sessionId')
   const { id: accountId, username } = useContext(AccountContext)
   const [, setWatchlistIds] = useContext(WatchlistContext)

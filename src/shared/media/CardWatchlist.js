@@ -1,6 +1,8 @@
 import React from 'react'
 import { animated, useSpring } from 'react-spring'
 
+import Text from '../../ui/Text'
+
 const CardWatchlist = ({ isOnWatchlist }) => {
   const { x } = useSpring({
     from: { x: 0 },
@@ -23,7 +25,11 @@ const CardWatchlist = ({ isOnWatchlist }) => {
           .interpolate(x => `scale(${x})`)
       }}
     >
-      ❤️
+      <Text as="span">
+        <span role="img" aria-label="heart">
+          ❤️
+        </span>
+      </Text>
     </animated.div>
   )
 }

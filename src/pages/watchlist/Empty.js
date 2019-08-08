@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React from 'react'
 
 import Box from '../../ui/Box'
 import List from '../../shared/media/List'

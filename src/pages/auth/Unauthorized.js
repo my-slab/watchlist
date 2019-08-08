@@ -23,7 +23,7 @@ const Unauthorized = () => {
       .catch(console.error)
   }, [])
 
-  return null
+  return <></>
 }
 
 export default Unauthorized

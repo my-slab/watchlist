@@ -36,12 +36,12 @@ const Card = ({
   const [sessionId] = useLocalStorage('sessionId', '')
   const { id: accountId } = useContext(AccountContext)
   const { start, stop } = useLoading()
-  const [watchlistIds, setWatchlistIds] = useContext(WatchlistContext)
+  const [watchlistIds] = useContext(WatchlistContext)
   const [isOnWatchlist, setIsOnWatchlist] = useState(watchlistIds.has(id))
 
   useEffect(() => {
     setIsOnWatchlist(watchlistIds.has(id))
-  }, [watchlistIds])
+  }, [watchlistIds, id])
 
   const handleOnDoubleClick = () => {
     const toggled = !isOnWatchlist

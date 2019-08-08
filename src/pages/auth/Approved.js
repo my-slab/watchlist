@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 import api, { pickData } from '../../shared/api'
 import useLoading from '../../shared/hooks/useLoading'
@@ -19,7 +19,7 @@ const Approved = ({ onStatusChange, requestToken }) => {
         .catch(console.error)
   }, [])
 
-  return null
+  return <></>
 }
 
 export default Approved
