@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 
 import styled from 'styled-components'
 
@@ -7,6 +7,11 @@ import CardImage from './CardImage'
 import CardRating from './CardRating'
 import CardWatchlist from './CardWatchlist'
 import Relative from '../../ui/Relative'
+import api from '../../shared/api'
+import useLoading from '../hooks/useLoading'
+import useLocalStorage from '../hooks/useLocalStorage'
+import { AccountContext } from '../../shared/account/AccountProvider'
+import { WatchlistContext } from '../../shared/watchlist/WatchlistProvider'
 
 const S = {
   Relative: styled(Relative)`
@@ -28,11 +33,38 @@ const Card = ({
   posterPath,
   voteAverage
 }) => {
-  const [isOnWatchlist, setIsOnWatchlist] = useState(false)
+  const [sessionId] = useLocalStorage('sessionId', '')
+  const { id: accountId } = useContext(AccountContext)
+  const { start, stop } = useLoading()
+  const [watchlistIds, setWatchlistIds] = useContext(WatchlistContext)
+  const [isOnWatchlist, setIsOnWatchlist] = useState(watchlistIds.has(id))
+
+  useEffect(() => {
+    setIsOnWatchlist(watchlistIds.has(id))
+  }, [watchlistIds])
 
   const handleOnDoubleClick = () => {
-    // call outer fn
-    setIsOnWatchlist(!isOnWatchlist)
+    const toggled = !isOnWatchlist
+    setIsOnWatchlist(toggled)
+
+    start()
+
+    api
+      .post(
+        `/account/${accountId}/watchlist`,
+        {
+          mediaId: id,
+          mediaType: 'tv',
+          watchlist: toggled
+        },
+        {
+          params: {
+            sessionId
+          }
+        }
+      )
+      .then(() => (toggled ? watchlistIds.add(id) : watchlistIds.delete(id)))
+      .finally(stop)
   }
 
   return (

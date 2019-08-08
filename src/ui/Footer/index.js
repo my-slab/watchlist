@@ -5,7 +5,7 @@ import Image from '../Image'
 import logo from './logo.png'
 
 const Footer = () => (
-  <Flex width="full" justifyContent="center" m="lg">
+  <Flex width="full" justifyContent="center">
     <Image src={logo} width={128} />
   </Flex>
 )

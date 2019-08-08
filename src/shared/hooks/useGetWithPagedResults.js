@@ -11,7 +11,7 @@ import useLoading from './useLoading'
 export default function useGetWithPagedResults(url, config = {}) {
   const initialState = { results: [], page: 1, totalPage: undefined }
   const [{ page, results, totalPages }, setResults] = useState(initialState)
-  const { pop, push } = useLoading()
+  const { start, stop } = useLoading()
   const oldDeps = useRef()
 
   const handleLoadMore = () =>
@@ -37,13 +37,13 @@ export default function useGetWithPagedResults(url, config = {}) {
       }
     }
 
-    push()
+    start()
 
     api
       .get(url, merge({ params: { page: p } }, config))
       .then(pickData)
       .then(setStrategy)
-      .finally(pop)
+      .finally(stop)
       .finally(() => {
         oldDeps.current = [page, config]
       })

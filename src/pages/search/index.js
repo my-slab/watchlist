@@ -7,15 +7,15 @@ import Avatar from '../../shared/account/Avatar'
 import Box from '../../ui/Box'
 import Container from '../../ui/Container'
 import Flex from '../../ui/Flex'
+import Logo from '../../ui/Logo'
 import Nav from '../../ui/Nav'
 import QueryInput from './QueryInput'
+import Results from './Results'
 import Text from '../../ui/Text'
 import api, { pickData } from '../../shared/api'
 import useDebounce from '../../shared/hooks/useDebounce'
 import useGetWithPagedResults from '../../shared/hooks/useGetWithPagedResults'
 import useLoading from '../../shared/hooks/useLoading'
-
-import Results from './Results'
 
 const Search = () => {
   const [query, setQuery] = useState('')
@@ -32,7 +32,7 @@ const Search = () => {
             alignItems="center"
             mb="lg"
           >
-            <span>Watchlist</span>
+            <Logo />
             <Avatar />
           </Flex>
 
@@ -67,72 +67,6 @@ const Search = () => {
       {debouncedQuery.length > 0 && <Results query={debouncedQuery} />}
     </Box>
   )
-
-  // const [ref, inView, entry] = useInView()
-  // const [{ results, page, totalPages }, setResults] = useState(initialState)
-  // const { pop, push } = useLoading()
-  // const [isLoading, setIsLoading] = useState(false)
-
-  // console.log('debouncedQuery', debouncedQuery)
-
-  // ;[{ page, results, totalPages }] = useGetWithPagedResults('/search/tv', {
-  //   params: { page: 1, query: debouncedQuery }
-  // })
-
-  // useEffect(() => {
-  //   if (debouncedQuery) {
-  //     ;[{ page, results, totalPages }] = useGetWithPagedResults('/search/tv', {
-  //       params: { page: 1, query: debouncedQuery }
-  //     })
-  //   }
-  // }, [debouncedQuery])
-
-  // useEffect(() => {
-  //   // if (debouncedQuery) {
-  //   const [{ page, results, totalPages }] = useGetWithPagedResults(
-  //     '/search/tv',
-  //     {
-  //       params: { page: 1, query: debouncedQuery }
-  //     }
-  //   )
-  // }, [debouncedQuery])
-
-  // useEffect(() => {
-  //   if (debouncedQuery) {
-  //     push()
-  //     setIsLoading(true)
-
-  //     api
-  //       .get('/search/tv', { params: { page: 1, query: debouncedQuery } })
-  //       .then(pickData)
-  //       .then(setResults)
-  //       .finally(pop)
-  //       .finally(() => setIsLoading(false))
-  //   } else {
-  //     setResults(initialState)
-  //   }
-  // }, [debouncedQuery])
-
-  // useEffect(() => {
-  //   if (page > 1) {
-  //     push()
-  //     setIsLoading(true)
-
-  //     api
-  //       .get('/search/tv', { params: { page, query: debouncedQuery } })
-  //       .then(pickData)
-  //       .then(({ results: r, ...pageInfo }) => {
-  //         setResults({ results: [...results, ...r], ...pageInfo })
-  //       })
-  //       .finally(pop)
-  //       .finally(() => setIsLoading(false))
-  //   }
-  // }, [page])
-
-  // const handleLoadMore = () => {}
-  // page < totalPages && setResults({ results, totalPages, page: page + 1 })
-
-  // console.log('inView', inView)
 }
 
 Search.displayName = 'Search'

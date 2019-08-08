@@ -6,7 +6,7 @@ import Flex from '../../ui/Flex'
 import Card from './Card'
 import Heading from '../../ui/Heading'
 
-const MediaList = ({ media, onLoadMore, page, totalPages, cardList }) => {
+const MediaList = ({ media, onLoadMore, page, totalPages }) => {
   const [ref, inView] = useInView()
   const isNotExhausted = media.length > 0 && page < totalPages
 

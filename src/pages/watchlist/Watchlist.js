@@ -1,6 +1,7 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import { Link } from '@reach/router'
+import { useInView } from 'react-intersection-observer'
 
 import Avatar from '../../shared/account/Avatar'
 import Box from '../../ui/Box'
@@ -14,13 +15,13 @@ import Text from '../../ui/Text'
 import useGetWithPagedResults from '../../shared/hooks/useGetWithPagedResults'
 import useLocalStorage from '../../shared/hooks/useLocalStorage'
 import { AccountContext } from '../../shared/account/AccountProvider'
-import { useInView } from 'react-intersection-observer'
+import { WatchlistContext } from '../../shared/watchlist/WatchlistProvider'
 
 const Watchlist = () => {
   const [ref, inView, entry] = useInView()
   const [sessionId] = useLocalStorage('sessionId')
-  const [watchlistIds, setWatchlistIds] = useState(new Set([]))
   const { id: accountId, username } = useContext(AccountContext)
+  const [, setWatchlistIds] = useContext(WatchlistContext)
 
   const [
     { page, results, totalPages },
@@ -28,6 +29,10 @@ const Watchlist = () => {
   ] = useGetWithPagedResults(`/account/${accountId}/watchlist/tv`, {
     params: { sessionId }
   })
+
+  useEffect(() => {
+    setWatchlistIds(results.reduce((acc, { id }) => acc.add(id), new Set([])))
+  }, [results])
 
   return (
     <Box my="lg">

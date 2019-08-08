@@ -9,6 +9,7 @@ import Home from './pages/search'
 import LoadingProvider from './shared/loading/LoadingProvider'
 import ThemeProvider from './ui/ThemeProvider'
 import Watchlist from './pages/watchlist/Watchlist'
+import WatchlistProvider from './shared/watchlist/WatchlistProvider'
 import theme from './ui/theme'
 
 const App = () => (
@@ -16,10 +17,12 @@ const App = () => (
     <LoadingProvider>
       <Auth>
         <AccountProvider>
-          <Router>
-            <Home path="/" />
-            <Watchlist path="/watchlist" />
-          </Router>
+          <WatchlistProvider>
+            <Router>
+              <Home path="/" />
+              <Watchlist path="/watchlist" />
+            </Router>
+          </WatchlistProvider>
         </AccountProvider>
 
         <Footer />

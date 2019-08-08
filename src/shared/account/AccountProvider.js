@@ -9,19 +9,21 @@ export const AccountContext = createContext()
 const AccountProvider = ({ children }) => {
   const [account, setAccount] = useState()
   const [sessionId] = useLocalStorage('sessionId', '')
-  const { pop } = useLoading()
+  const { start, stop } = useLoading()
 
   useEffect(() => {
+    start()
+
     api
       .get('/account', { params: { sessionId } })
       .then(pickData)
       .then(setAccount)
-      .finally(pop)
+      .finally(stop)
   }, [])
 
   return (
     <AccountContext.Provider value={account}>
-      {children}
+      {account && children}
     </AccountContext.Provider>
   )
 }
